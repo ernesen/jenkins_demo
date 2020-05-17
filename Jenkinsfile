@@ -13,9 +13,9 @@ pipeline {
                 sh 'mvn -v'
             }
         }
-        stage('More helm') {
+        stage('More docker') {
             steps {
-                sh 'helm version --short'
+                sh 'docker version'
             }
         }
     }
