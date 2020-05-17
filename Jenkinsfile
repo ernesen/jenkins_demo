@@ -1,11 +1,25 @@
 pipeline {
     agent {
-        docker { image 'node:7-alpine' }
+        docker { image 'ernesen/migratecf:2.0' }
     }
     stages {
-        stage('Test') {
+        stage('Test Java') {
             steps {
-                sh 'node --version'
+                sh 'java -version'
+            }
+        }
+    }
+    stages {
+        stage('More Maven') {
+            steps {
+                sh 'mvn -v'
+            }
+        }
+    }
+    stages {
+        stage('More helm') {
+            steps {
+                sh 'helm version --short'
             }
         }
     }
